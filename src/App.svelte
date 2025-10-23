@@ -1,19 +1,25 @@
+<!--	JavaScript	-->
 <script>
-const num = 'DCT';
+	const names = ['Mr.DCT', 'Ama', 'NNR'];
+	const fullNames = [
+		{first: "Verla", last: "Berinyuy"},
+		{first: "Ama", last: "Morel"},
+		{first: "Nkemalo", last: "Rejoice"},
+	];
 </script>
 
+<!--	HTML	-->
 <main>
-	{#if num === 0}
-		<h2>The number is zero</h2>
-	{:else if num < 0}
-		<h2>The number is negative</h2>
-	{:else if num > 0}
-		<h2>The number is positive</h2>
-	{:else}
-		<h2>Not a numbero</h2>
-	{/if}
+	{#each fullNames as name, index}
+		<h2>{index + 1} {name.first} {name.last}</h2>
+	{/each}
+
+	{#each names as name, index}
+		<h2>{index + 1} {name}</h2>
+	{/each}
 </main>
 
+<!--	CSS		-->
 <style>
 	main {
 		text-align: center;
