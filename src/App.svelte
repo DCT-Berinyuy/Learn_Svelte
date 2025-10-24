@@ -4,7 +4,14 @@
 		name: "",
 		profileSummary: "",
 		country: '',
-		jobLocation: []
+		jobLocation: [],
+		remoteWork: false,
+		skillSet: [],
+		yearsOfExperience: '',
+	}
+
+	function submitForm() {
+		console.log(formValues)
 	}
 </script>
 
@@ -15,7 +22,7 @@
 			{JSON.stringify(formValues, null, 2)}
 		</pre>
 	</div>
-	<form action="">
+	<form on:submit|preventDefault={submitForm}><!--We specify a modifier using a pipe character-->
 		<div>
 			<label for="name">Name</label>
 			<input type="text" id="name" bind:value={formValues.name}/>
@@ -45,6 +52,65 @@
 				<option value="nigeria">Nigeria</option>
 				<option value="gana">Gana</option>
 			</select>
+		</div>
+
+		<div>
+			<input type="checkbox" name="" id="remoteWork" bind:checked={formValues.remoteWork} />
+			<label for="remoteWork">Open for remote work?</label>
+		</div>
+
+		<div>
+			<label for="">Skill set</label>
+			<input 
+			type="checkbox" 
+			id="html" 
+			value="html" 
+			bind:group={formValues.skillSet} 
+			/>
+			<label for="html">HTML</label>
+			<input 
+			type="checkbox" 
+			id="css" 
+			value="css" 
+			bind:group={formValues.skillSet} 
+			/>
+			<label for="css">CSS</label>
+			<input 
+			type="checkbox" 
+			id="javascript" 
+			value="javascript" 
+			bind:group={formValues.skillSet} 
+			/>
+			<label for="javascript">JavaScript</label>
+		</div>
+
+		<div>
+			<label for="">Years of Experience</label>
+			<input 
+			type="radio" 
+			id="0-2" 
+			value="0-2" 
+			bind:group={formValues.yearsOfExperience} 
+			/>
+			<label for="0-2">0-2</label>
+			<input 
+			type="radio" 
+			id="3-5" 
+			value="3-5" 
+			bind:group={formValues.yearsOfExperience} 
+			/>
+			<label for="3-5">3-5</label>
+			<input 
+			type="radio" 
+			id="6-10" 
+			value="6-10" 
+			bind:group={formValues.yearsOfExperience} 
+			/>
+			<label for="6-10">6-10</label>
+		</div>
+
+		<div>
+			<button>Submit</button>
 		</div>
 	</form>
 </main>
