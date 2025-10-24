@@ -1,21 +1,59 @@
 <!--	JavaScript	-->
 <script>
-	let count = 0; //Make sure you use let not const bcs we're going to change count
-	function handleClick(event, stepSize) {
-		console.log(event)
-		count += stepSize;
+	const formValues = {
+		name: "",
+		profileSummary: "",
+		country: '',
+		jobLocation: []
 	}
 </script>
 
 <!--	HTML	-->
 <main>
-	<button on:click={() => (count = count + 1)}>Count {count}</button> <!--In svelte, to listen to an event, we use the on:click-->
-	<button on:click={(event) => handleClick(event, 5)}>Count {count}</button>
-	<button on:click={(event) => handleClick(event, 10)}>Count {count}</button>
+	<div>
+		<pre>
+			{JSON.stringify(formValues, null, 2)}
+		</pre>
+	</div>
+	<form action="">
+		<div>
+			<label for="name">Name</label>
+			<input type="text" id="name" bind:value={formValues.name}/>
+		</div>
+
+		<div>
+			<label for="profile">Profile</label>
+			<textarea name="" id="profile" bind:value={formValues.profileSummary}/>
+		</div>
+
+		<div>
+			<label for="country">Country</label>
+			<select name="" id="country" bind:value={formValues.country}>
+				<option value="">Select a country</option>
+				<option value="cameroon">Cameroon</option>
+				<option value="rwanda">Rwanda</option>
+				<option value="nigeria">Nigeria</option>
+			</select>
+		</div>
+
+		<div>
+			<label for="job-location">Job Location</label>
+			<select name="" id="job-location" bind:value={formValues.jobLocation} multiple>
+				<option value="">Select a country</option>
+				<option value="cameroon">Cameroon</option>
+				<option value="rwanda">Rwanda</option>
+				<option value="nigeria">Nigeria</option>
+				<option value="gana">Gana</option>
+			</select>
+		</div>
+	</form>
 </main>
 
 <!--	CSS		-->
 <style>
+	input + label {
+		display: inline-flex;
+	}
 	main {
 		text-align: center;
 		padding: 1em;
