@@ -1,11 +1,16 @@
+<!--	JavaScript	-->
+<!--Components describe a part of the user interface-->
 <script>
-	export let name;
+	import Greet from "./components/Greet.svelte";
 </script>
 
+<!--	HTML	-->
+
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<Greet />
 </main>
+
+<!--	CSS		-->
 
 <style>
 	main {
