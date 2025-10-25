@@ -8,7 +8,10 @@ The syntax for a reactive declaration uses a labeled statement with a dollar sig
 	let firsName = "Verla"
 	let lastName = "Berinyuy"
 	$: fullName = `${firsName} ${lastName}`
-
+	$: {
+		const greet = `Full name is ${fullName}`
+		console.log(greet)
+	}
 	let items = [
 		{
 			id: 1,
@@ -27,10 +30,21 @@ The syntax for a reactive declaration uses a labeled statement with a dollar sig
 		}
 	]
 	$: total = items.reduce((total, curr) => (total = total + curr.price), 0)
+	let volume = 0;
+	$: if (volume < 0) {
+		alert(`Can't go lower`)
+		volume = 0;
+	} else if (volume > 20) {
+		alert(`Can't go higher`)
+		volume = 20;
+	}
 </script>
 
 <!--	HTML	-->
 <main>
+	<h2>Current volume {volume}</h2>
+	<button on:click={() => (volume += 2)}>Increase volume</button>
+	<button on:click={() => (volume -= 2)}>Decrease volume</button>
 	<button on:click={() => {
 		firsName = 'Rejoice'
 		lastName = 'Ngu'
