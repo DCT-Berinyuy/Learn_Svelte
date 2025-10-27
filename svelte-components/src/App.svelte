@@ -1,6 +1,5 @@
 <!--	JavaScript	-->
-<!--Components describe a part of the user interface-->
-<!--Probs are custom attributes you can register on a component which allows the component content to be dynamic-->
+<!--Context API provides a way, to pass data through the component tree without having to pass props down manually at every level-->
 
 <script>
 	import Greet from "./components/Greet.svelte";
