@@ -1,1 +1,6 @@
-<h2>Hello Mr.DCT</h2>
+<script>
+    export let name;
+    export let heroName;
+</script>
+
+<h2>Hello {name} a.k.a {heroName}</h2>
