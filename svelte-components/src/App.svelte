@@ -15,6 +15,18 @@ child component including HTML elements-->
 	<Card><h2>Card Content</h2></Card>
 	<Card><img src="https://picsum.photos/200" alt=""></Card>
 	<Card />
+	<Card>
+		<div slot="header">
+			<h3>Header</h3>
+		</div>
+		<div slot="content">
+			<img src="https://picsum.photos/200" alt="">
+		</div>
+		<!--To remove hr, comment footer out-->
+		<div slot="footer">
+			<button>View Details</button>
+		</div>
+	</Card>
 
 	<!--<Card content='Card content 1'/>
 	<Card content='Card content 2'/> -->
