@@ -1,20 +1,24 @@
 <!--	JavaScript	-->
-<!--Event forwarding helps you listen to and event in a deeply nested component-->
+<!--Slots allow you to re-use a component.
+They allow the parent component to control the content inside the child component.
+in otherwords, Slots allow a parent component to embed any content in a
+child component including HTML elements-->
 
 <script>
-	import Outer from "./components/Outer.svelte";
-	import Button from "./components/Button.svelte";
-
-	function handleGreet(event) {
-		alert(event.detail)
-	}
+	import Card from "./components/Card.svelte";
 </script>
 
 <!--	HTML	-->
 
 <main>
-	<Outer on:greet={handleGreet} />
-	<Button on:click={() => alert('Clicked')}>Click</Button>
+	<Card>Card Content</Card>
+	<Card><h2>Card Content</h2></Card>
+	<Card><img src="https://picsum.photos/200" alt=""></Card>
+	<Card />
+
+	<!--<Card content='Card content 1'/>
+	<Card content='Card content 2'/> -->
+
 </main>
 
 <!--	CSS		-->
