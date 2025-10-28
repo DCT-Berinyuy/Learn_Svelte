@@ -1,23 +1,20 @@
 <!--	JavaScript	-->
-<!--Context API provides a way, to pass data through the component tree without having to pass props down manually at every level-->
+<!--Event forwarding helps you listen to and event in a deeply nested component-->
 
 <script>
-	import Popup from "./components/Popup.svelte";
-	let showPopup = false;
+	import Outer from "./components/Outer.svelte";
+	import Button from "./components/Button.svelte";
 
-	function closPopup(event) {
-		showPopup = false;
-		console.log(event.detail)
+	function handleGreet(event) {
+		alert(event.detail)
 	}
 </script>
 
 <!--	HTML	-->
 
 <main>
-	<button on:click={() => (showPopup = true)}>Show Popup</button>
-	{#if showPopup}
-		<Popup on:close={closPopup} />
-	{/if}
+	<Outer on:greet={handleGreet} />
+	<Button on:click={() => alert('Clicked')}>Click</Button>
 </main>
 
 <!--	CSS		-->
