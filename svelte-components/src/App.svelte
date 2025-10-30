@@ -1,61 +1,27 @@
 <!--	JavaScript	-->
-<!--Slots allow you to re-use a component.
-They allow the parent component to control the content inside the child component.
-in otherwords, Slots allow a parent component to embed any content in a
-child component including HTML elements-->
 
 <script>
-	//import Card from "./components/Card.svelte";
-	import NameList from "./components/NameList.svelte";
+import ChildStyle from "./components/ChildStyle.svelte";
 </script>
 
 <!--	HTML	-->
 
 <main>
-	<NameList>
-		<h3 slot="hero" let:firstName let:lastName>
-		{firstName} {lastName}
-		</h3>
-	</NameList>
-
-	<NameList>
-		<h3 slot="hero" let:firstName let:lastName>
-		{lastName}, {firstName}
-		</h3>
-	</NameList>
-
-	<NameList>
-		<h3 slot="hero" let:firstName let:lastName>
-		{firstName}
-		</h3>
-	</NameList>
-	<!--
-	<Card>Card Content</Card>
-	<Card><h2>Card Content</h2></Card>
-	<Card><img src="https://picsum.photos/200" alt=""></Card>
-	<Card />
-	<Card>
-		<div slot="header">
-			<h3>Header</h3>
-		</div>
-		<div slot="content">
-			<img src="https://picsum.photos/200" alt="">
-		</div>
-		To remove hr, comment footer out
-		<div slot="footer">
-			<button>View Details</button>
-		</div>
-	</Card>
-	-->
-
-	<!--<Card content='Card content 1'/>
-	<Card content='Card content 2'/> -->
+	<h3>ChildStyle component global style</h3>
+	<h4>Appp component text</h4>
+	<ChildStyle />
 
 </main>
 
 <!--	CSS		-->
 
 <style>
+	:global(h3) {
+		color: blue;
+	}
+	h4 {
+		color: olive;
+	}
 	main {
 		text-align: center;
 		padding: 1em;
